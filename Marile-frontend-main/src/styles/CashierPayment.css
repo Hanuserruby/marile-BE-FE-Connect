@@ -1,0 +1,297 @@
+/* Container Utama Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(2px);
+}
+
+.payment-modal-content {
+  background: white;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 850px;
+  position: relative;
+  border: 6px solid #2BAE96;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slideUp 0.3s ease-out;
+}
+
+.payment-modal-content.qris-mode {
+  max-width: 400px;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Tombol Tutup (X) */
+.modal-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #E53935;
+  color: white;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-title {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 24px;
+  font-weight: 800;
+  color: #162421;
+}
+
+.payment-modal-body {
+  display: flex;
+  padding: 0 25px 25px;
+  gap: 25px;
+}
+
+/* --- Kolom Kiri: Rincian & Input --- */
+.payment-left-col {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Rincian Produk Sesuai Request (Kiri, Tengah, Kanan) */
+.order-summary-box {
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 15px;
+  border: 1px solid #eee;
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+.summary-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: #2BAE96;
+  border-bottom: 2px solid #2BAE96;
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px dashed #ddd;
+  font-size: 13px;
+}
+
+.summary-name {
+  flex: 2;
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+}
+
+.summary-qty {
+  flex: 0.5;
+  text-align: center;
+  color: #2BAE96;
+  font-weight: 800;
+}
+
+.summary-price {
+  flex: 1.5;
+  text-align: right;
+  font-weight: 700;
+  color: #162421;
+}
+
+/* Metode Pembayaran */
+.method-selector {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+.method-card {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: 2px solid #eee;
+  background: white;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  transition: 0.2s;
+}
+
+.method-card.active {
+  border-color: #2BAE96;
+  background: #f0fbf9;
+  color: #2BAE96;
+}
+
+.method-card span {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* Tampilan Total & Input */
+.total-display {
+  background: #fff;
+  border: 2px solid #162421;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.total-display label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #666;
+  display: block;
+}
+
+.total-display .val {
+  font-size: 22px;
+  font-weight: 800;
+  color: #162421;
+}
+
+.input-amount {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #162421;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  outline: none;
+}
+
+.change-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.change-info.success {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #2e7d32;
+}
+
+.change-info.danger {
+  background: #ffebee;
+  color: #c62828;
+  border: 1px solid #c62828;
+}
+
+/* Tombol Aksi Orange */
+.btn-action {
+  background: #F4A261;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  font-weight: 800;
+  cursor: pointer;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 0 #d98a4a;
+}
+
+.btn-action:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+/* --- Kolom Kanan: Numpad --- */
+.numpad-grid {
+  flex: 0.9;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  background: #f0f3f3;
+  padding: 15px;
+  border-radius: 15px;
+}
+
+.numpad-btn {
+  padding: 15px 0;
+  border: none;
+  border-radius: 10px;
+  background: white;
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 3px 0 #cbd5d4;
+  color: #162421;
+}
+
+.numpad-btn:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+.btn-equals {
+  background: #2BAE96 !important;
+  color: white !important;
+}
+
+.btn-clear {
+  color: #E53935 !important;
+  font-size: 14px !important;
+  background-color: #fff5f5 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-clear:active {
+  background-color: #ffe0e0 !important;
+}
+
+/* --- QRIS Mode --- */
+.qris-barcode-container {
+  padding: 30px;
+  text-align: center;
+}
+
+.barcode-placeholder {
+  margin: 20px auto;
+  padding: 15px;
+  border: 2px dashed #2BAE96;
+  display: inline-block;
+  border-radius: 15px;
+  background: #fff;
+}
