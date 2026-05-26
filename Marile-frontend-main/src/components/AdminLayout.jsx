@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
   LayoutDashboard, ShoppingBag, History, Settings, 
-  LogOut, Search, Download, Bell, User, Menu, X 
+  LogOut, Search, Download, Bell, User, Menu, X, ClipboardList 
 } from 'lucide-react';
 
 // PASTIKAN IMPORT INI BENAR
@@ -67,6 +67,15 @@ const AdminLayout = ({ children }) => {
           >
             <History size={20} />
             <span>History</span>
+          </Link>
+
+          <Link 
+            to="/admin/inventory" 
+            className={`nav-item ${location.pathname === '/admin/inventory' ? 'active' : ''}`}
+            onClick={() => setIsSidebarOpen(false)}
+          >
+            <ClipboardList size={20} />
+            <span>Inventory</span>
           </Link>
         </div>
 
