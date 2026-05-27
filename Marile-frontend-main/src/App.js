@@ -12,6 +12,7 @@ import CashierProducts from "./pages/CashierProduct";
 import CashierHistory from "./pages/CashierHistory";
 import Settings from "./pages/Settings";
 import ProtectedRoute from "./components/ProtectedRoute";
+import AdminInventory from "./pages/AdminInventory";
 
 function App() {
   return (
@@ -43,6 +44,14 @@ function App() {
           element={
             <ProtectedRoute allowedRole="admin">
               <AdminHistory />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/inventory"
+          element={
+            <ProtectedRoute allowedRole="admin">
+              <AdminInventory />
             </ProtectedRoute>
           }
         />
